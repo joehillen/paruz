@@ -6,6 +6,8 @@ cat <<EOF >README.md
 
 A fzf terminal UI for \`paru\` (or \`pacman\`, if \`paru\` is not installed).
 
+VERSION: $(cat VERSION)
+
 # Usage
 
 ${BLOCK}text

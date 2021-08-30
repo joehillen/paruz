@@ -2,6 +2,8 @@
 
 A fzf terminal UI for `paru` (or `pacman`, if `paru` is not installed).
 
+VERSION: 1.0.0
+
 # Usage
 
 ```text
