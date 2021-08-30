@@ -1,30 +1,61 @@
-# OPTIONS
+# [paruz](https://github.com/joehillen/paruz)
 
-All arguments passed to `paruz` are passed to the `paru` command after making
-a selection.
+A fzf terminal UI for `paru` (or `pacman`, if `paru` is not installed).
 
-Default is `-S`:
+# Usage
+
+```text
+Usage: paruz [OPTS]
+
+A fzf terminal UI for paru or pacman.
+
+sudo is invoked automatically, if needed.
+
+Multiple packages can be selected.
+
+The package manager can be changed with the environment variables: PARUZ
+
+Keybindings:
+  TAB                    Select
+  SHIFT+TAB              Deselect
+  CTRL+r                 Refresh package database (-Syy)
+
+OPTS:
+  -h, --help             Print this message
+
+  All other options are passed to the package manager.
+  Default: -S (install)
+
+Examples:
+  paruz -S --nocleanafter
+  paruz -R
+  PARUZ=yay paruz
+```
+
+# Requirements
+
+- [fzf](https://github.com/junegunn/fzf)
+- bash > 4.3 (released 2009)
+
+# Installation
+
+## Arch Linux
 
 ```
-$ paruz -S --nocleanafter
-$ paruz -R
+paru -S paruz
 ```
 
-# KEYBINDINGS
+## Direct Download
 
-- `Tab` Select
-- `Shift+Tab` Deselect
-- `Ctrl+a` Select All
+```sh
+wget -O ~/.bin/paruz https://raw.githubusercontent.com/joehillen/paruz/master/paruz
+chmod +x ~/.bin/paruz
+```
 
-# ENVIRONMENT VARIABLES
+## From Source
 
-- Use the `PARUZ` environment variable to change the package management
-  command from `paru` to something else, such as `pacman` or `yay`:
-  ```
-  $ env PARUZ="sudo pacman" paruz
-  $ env PARUZ=yay paruz
-  ```
-- Use `FZF_DEFAULT_OPTS` to change the options for the `fzf` command:
-  ```
-  $ env FZF_DEFAULT_OPTS="--extended --cycle" paruz
-  ```
+```sh
+git clone https://github.com/joehillen/paruz.git
+cd paruz
+sudo make install # /usr/local/bin/paruz
+```
