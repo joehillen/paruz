@@ -1,6 +1,6 @@
 # [paruz](https://github.com/joehillen/paruz)
 
-A fzf terminal UI for `paru` (or `pacman`, if `paru` is not installed).
+A [fzf](https://github.com/junegunn/fzf) terminal UI for [paru](https://github.com/Morganamilo/paru) (or [pacman](https://wiki.archlinux.org/title/Pacman), if paru is not installed).
 
 VERSION: 1.0.0
 
