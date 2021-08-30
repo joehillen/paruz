@@ -1,0 +1,46 @@
+#!/bin/bash
+
+__paruz_help() {
+  PROG=$(basename "$0")
+  cat >&2 <<EOF
+
+Usage: $PROG [OPTS]
+
+asldjads
+
+OPT:
+  -h, --help             Print this message
+EOF
+
+  exit 1
+}
+
+while :; do
+  case $1 in
+  -h | --help)
+    __paruz_help
+    ;;
+
+  *)
+    break
+    ;;
+  esac
+  shift
+done
+
+CMD=${PARUZ:-paru}
+
+shopt -s lastpipe
+
+paru -Slq |
+  fzf \
+    --multi \
+    --bind "change:reload:$CMD -Ssq {q} || true" \
+    --preview "$CMD -Si {}" |
+  readarray -t PKGS
+
+if [[ -z ${PKGS[*]} ]]; then
+  exit 0
+fi
+
+exec $CMD -S "${PKGS[@]}"
