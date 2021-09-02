@@ -2,7 +2,7 @@
 
 A [fzf](https://github.com/junegunn/fzf) terminal UI for [paru](https://github.com/Morganamilo/paru) (or [pacman](https://wiki.archlinux.org/title/Pacman), if paru is not installed).
 
-VERSION: 1.0.0
+VERSION: 1.1.0
 
 # Usage
 
@@ -19,8 +19,7 @@ The package manager can be changed with the environment variables: PARUZ
 
 Keybindings:
   TAB                    Select
-  SHIFT+TAB              Deselect
-  CTRL+r                 Refresh package database (-Syy)
+  Shift+TAB              Deselect
 
 OPTS:
   -h, --help             Print this message
