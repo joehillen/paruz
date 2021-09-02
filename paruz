@@ -30,8 +30,7 @@ The package manager can be changed with the environment variables: PARUZ
 
 Keybindings:
   TAB                    Select
-  SHIFT+TAB              Deselect
-  CTRL+r                 Refresh package database (-Syy)
+  Shift+TAB              Deselect
 
 OPTS:
   -h, --help             Print this message
@@ -55,11 +54,6 @@ __paruz_list() {
   "$PARUZ" --color=always -Sl | sed -e 's: :/:; s/ unknown-version//'
 }
 
-__fzf_reload() {
-  "$PARUZ" -Syy >&2 || exit $?
-  __paruz_list
-}
-
 # main
 
 while [[ -n $1 ]]; do
@@ -70,10 +64,6 @@ while [[ -n $1 ]]; do
   __fzf_preview)
     shift
     __fzf_preview "$@"
-    ;;
-  __fzf_reload)
-    shift
-    __fzf_reload "$@"
     ;;
   *)
     break
@@ -93,7 +83,6 @@ __paruz_list |
   fzf \
     --multi \
     --ansi \
-    --bind "ctrl-r:reload('${BASH_SOURCE[0]}' __fzf_reload)" \
     --preview="'${BASH_SOURCE[0]}' __fzf_preview {1}" |
   readarray -t PICKS
 
