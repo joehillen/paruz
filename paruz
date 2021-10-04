@@ -8,7 +8,7 @@ if [[ -z $PARUZ ]]; then
   elif ! command -v pacman >/dev/null 2>&1; then
     echo "Neither paru nor pacman found. Is this Arch?" >&2
     exit 1
-  elif [[ $EUID -eq 0 ]]; then
+  elif [[ $EUID -eq 0 ]] || [[ -f /usr/bin/msys-2.0.dll ]]; then
     PARUZ=pacman
   else
     PARUZ='sudo pacman'
@@ -83,7 +83,7 @@ __paruz_list |
   fzf \
     --multi \
     --ansi \
-    --preview="'${BASH_SOURCE[0]}' __fzf_preview {1}" |
+    --preview="/usr/bin/env bash '${BASH_SOURCE[0]}' __fzf_preview {1}" |
   readarray -t PICKS
 
 if [[ ${#PICKS[@]} -eq 0 ]]; then
