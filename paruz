@@ -47,11 +47,11 @@ EOF
 }
 
 __fzf_preview() {
-  "$PARUZ" --color=always -Si "$1" | grep --color=never -v '^ '
+  $PARUZ --color=always -Si "$1" | grep --color=never -v '^ '
 }
 
 __paruz_list() {
-  "$PARUZ" --color=always -Sl | sed -e 's: :/:; s/ unknown-version//'
+  $PARUZ --color=always -Sl | sed -e 's: :/:; s/ unknown-version//'
 }
 
 # main
@@ -95,4 +95,4 @@ for PICK in "${PICKS[@]}"; do
   PKGS+=("${PICK%% *}")
 done
 
-exec "$PARUZ" "${ARGS[@]}" "${PKGS[@]}"
+exec $PARUZ "${ARGS[@]}" "${PKGS[@]}"
