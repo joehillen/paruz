@@ -1,7 +1,7 @@
 # Maintainer: Joe Hillenbrand (joehillen) <joehillen@gmail.com>
 
 pkgname=paruz
-pkgver=1.1.0
+pkgver=1.1.1
 pkgrel=1
 pkgdesc="A fzf terminal UI for paru or pacman"
 arch=("any")

@@ -2,7 +2,7 @@
 
 A [fzf](https://github.com/junegunn/fzf) terminal UI for [paru](https://github.com/Morganamilo/paru) (or [pacman](https://wiki.archlinux.org/title/Pacman), if paru is not installed).
 
-VERSION: 1.1.0
+VERSION: 1.1.1
 
 # Usage
 
