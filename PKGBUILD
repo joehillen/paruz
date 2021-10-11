@@ -10,7 +10,7 @@ license=("UNLICENSE")
 depends=("bash" "fzf")
 optdepends=("paru: for AUR support")
 source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/$pkgver.tar.gz")
-sha256sums=('ea0eacf19d3d8aa908d5ac5dbd53081a26728ff13062b36f08848b1d2c471a29')
+sha256sums=('1800e55136b2c17135a7139ae3f3f4706c60d23b957b9a92cb1d3bf2d5942123')
 
 package() {
   install -Dm775 "$srcdir/$pkgname-$pkgver/paruz" "$pkgdir/usr/bin/paruz"
