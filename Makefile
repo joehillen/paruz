@@ -15,6 +15,11 @@ release: all
 	makepkg
 	git commit -am 'Update PKGBUILD'
 	git push origin master
+	cp PKGBUILD ~/src/aur/paruz/PKGBUILD
+	cd ~/src/aur/paruz/PKGBUILD
+	makepkg -ci
+	git commit -am "Release $(VERSION)"
+	git push origin master
 
 
 clean:
