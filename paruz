@@ -93,7 +93,9 @@ if [[ ${#PICKS[@]} -eq 0 ]]; then
 fi
 
 declare -a PKGS
+prefix="aur/"
 for PICK in "${PICKS[@]}"; do
+  PICK=${PICK#$prefix}
   PKGS+=("${PICK%% *}")
 done
 
