@@ -53,7 +53,7 @@ __fzf_preview() {
 }
 
 __paruz_list() {
-  $PARUZ --color=always -Sl | sed -e 's: :/:; s/ unknown-version//'
+  $PARUZ --color=always -Sl | sed -E 's: :/:; s/ (\x1b\[[0-9;]*m)?unknown-version/\1/'
 }
 
 # main
